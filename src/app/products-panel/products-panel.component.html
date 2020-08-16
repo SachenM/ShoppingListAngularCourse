@@ -1,0 +1,19 @@
+
+
+
+<Div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h2>Products</h2>
+            <app-product-list (itemSelected)="onItemSelected($event)"></app-product-list>
+            
+        </div>
+        
+            
+            <div class="col-md-7" *ngIf="productSelected" >
+                <h2> Details </h2>
+                <app-details [displayProduct]="productSelected" (addedToCart)="onCartWasAdded($event)"></app-details>
+            </div>
+        
+    </div>
+</Div>

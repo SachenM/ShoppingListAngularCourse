@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { cart } from './cart-panel/cart.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shopping-app';
+  selectedHeader:string = 'Home';
+  cartItemsList:cart[]=[]; 
+
+  numberOfCart:number;
+
+  oncartSelected(cart:cart){
+    console.log('oncartSelected - AppComponent' + cart.amount)
+    this.cartItemsList.push(cart);
+    this.numberOfCart =  this.cartItemsList.length 
+  }
+
+
+
 }

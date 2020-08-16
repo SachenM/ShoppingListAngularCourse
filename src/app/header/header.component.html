@@ -1,0 +1,15 @@
+<div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Shopping App</a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="#" class="nav-link" (click)="onHeaderClicked('Home')">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" (click)="onHeaderClicked('Mange')">Mange</a></li>
+
+        </ul>
+            <button class="btn btn-success my-2 my-sm-0 mx-5" 
+            (click)="onHeaderClicked('View Cart')" >View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-body float-right">
+            <button class="btn btn-primary "
+            (click)="onAddToCart()">Add to Cart</button>
+            <input type="number" style="max-width: 100px; margin-left: 10px;" placeholder="Amount" #amountInput>
+        </div>
+        <h1 class="list-group-item-heading"><b>{{ displayProduct.name }}</b></h1>
+        <h6 class="card-subtitle mb-2 text-muted">{{ displayProduct.type }}</h6>
+        <p>{{ displayProduct.desctription }}</p>
+        <hr>
+            <h5 ><b>Cost :</b> INR <span style="color:red;"> {{ displayProduct.cost }}</span></h5>       
+        <hr>
+        <img class="card-img-bottom"
+        [src]="displayProduct.image" alt="" 
+        class="img-responsive" style="max-height:350px ;">
+    </div>
+  </div>
+
+
+

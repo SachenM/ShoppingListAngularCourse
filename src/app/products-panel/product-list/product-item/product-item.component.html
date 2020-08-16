@@ -1,0 +1,15 @@
+
+
+<!-- <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action"><b>{{ product.name }}</b>  ({{ product.type }}) <p>{{ product.desctription }}</p></a>
+</div> -->
+
+
+<Div class="float-left">
+    <h5 class="list-group-item-heading"><b>{{ product.name }}</b>  ({{ product.type }})</h5>
+    <p class="list-group-item-text">{{ product.desctription }}</p>
+</Div>
+<span class="float-right">
+    <img [src]="product.image" alt="" 
+    class="img-responsive" style="max-height:50px ;">
+</span>
