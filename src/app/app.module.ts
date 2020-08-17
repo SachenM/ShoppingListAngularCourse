@@ -10,6 +10,7 @@ import { CartItemComponent } from './cart-panel/cart-list/cart-item/cart-item.co
 import { DetailsComponent } from './products-panel/details/details.component';
 import { ProductsPanelComponent } from './products-panel/products-panel.component';
 import { CartPanelComponent } from './cart-panel/cart-panel.component';
+import { DropdownDirective } from './Shared/directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
     CartItemComponent,
     DetailsComponent,
     ProductsPanelComponent,
-    CartPanelComponent
+    CartPanelComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule//,FormsModule

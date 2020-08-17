@@ -10,6 +10,11 @@
             <li class="nav-item"><a href="#" class="nav-link" (click)="onHeaderClicked('Mange')">Mange</a></li>
 
         </ul>
-            <button class="btn btn-success my-2 my-sm-0 mx-5" 
-            (click)="onHeaderClicked('View Cart')" >View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
+
+        <!-- <div class="dropdown show"> -->
+            <button class="btn btn-success my-2 my-sm-0 mx-5" appDropdown
+            (click)="onHeaderClicked('View Cart')" id="dropdownMenuOffset">View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
+        
+            <!-- <app-cart-panel [cartItems]="cartItems" ></app-cart-panel>
+        </div> -->
 </div>
