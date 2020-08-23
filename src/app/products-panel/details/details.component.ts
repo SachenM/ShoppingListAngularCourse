@@ -1,52 +1,24 @@
-import { Component, OnInit, Output, Input, ViewChild, ElementRef, OnChanges, EventEmitter, DoCheck, AfterViewInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit,  Input, ViewChild, ElementRef } from '@angular/core';
 import { product } from 'src/app/Shared/Model/product.model';
 import { cart } from 'src/app/cart-panel/cart.model';
+import { cartList } from 'src/app/Shared/Service/cartList.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit,DoCheck,AfterViewInit,AfterContentChecked {
+export class DetailsComponent implements OnInit {
   @Input() displayProduct:product;
-  previousProduct:product=new product(3,'dummy','dummy',10,'dummy','dummy');
-  itemCount : number;
   @ViewChild('amountInput') amountInputRef : ElementRef;
-  @Output() addedToCart = new EventEmitter<cart>();
-   
 
-  constructor() { }
+  constructor(private cartList:cartList) { }
 
-  ngOnInit(): void {
-   
-  }
-
-
-  ngDoCheck(){
-    //console.log('this.previousProduct : '+this.previousProduct+', this.displayProduct :'+this.displayProduct)
-    // if (this.previousProduct != this.displayProduct){
-    //    this.amountInputRef.nativeElement.value = null;
-    // }
-    //this.previousProduct = this.displayProduct;
-  }
-
-
-  ngAfterViewInit(){
-  //   console.log('this.previousProduct : '+this.previousProduct+', this.displayProduct :'+this.displayProduct)
-  //   if (this.previousProduct != this.displayProduct){
-  //     this.amountInputRef.nativeElement.value = null;
-  //  }
-  }
-
-  ngAfterContentChecked(){
-        console.log('this.previousProduct : '+this.previousProduct+', this.displayProduct :'+this.displayProduct)
-  //   if (this.previousProduct != this.displayProduct){
-  //     this.amountInputRef.nativeElement.value = null;
-  //  }
-  }
+  ngOnInit(): void { }
 
   onAddToCart(){
-    this.addedToCart.emit(new cart(this.displayProduct,this.amountInputRef.nativeElement.value));
+    this.cartList.addToCart(new cart(this.displayProduct,this.amountInputRef.nativeElement.value))
+
   }
 
 }

@@ -11,6 +11,8 @@ import { DetailsComponent } from './products-panel/details/details.component';
 import { ProductsPanelComponent } from './products-panel/products-panel.component';
 import { CartPanelComponent } from './cart-panel/cart-panel.component';
 import { DropdownDirective } from './Shared/directives/dropdown.directive';
+import { cart } from './cart-panel/cart.model';
+import { cartList } from './Shared/Service/cartList.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { DropdownDirective } from './Shared/directives/dropdown.directive';
   imports: [
     BrowserModule//,FormsModule
   ],
-  providers: [],
+  providers: [cartList],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

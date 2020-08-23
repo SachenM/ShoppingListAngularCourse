@@ -1,24 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { cart } from './cart-panel/cart.model';
+import {cartList} from './Shared/Service/cartList.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'shopping-app';
   selectedHeader:string = 'Home';
-  cartItemsList:cart[]=[]; 
+  //cartItemsList:cart[]=[]; 
 
   numberOfCart:number;
 
-  oncartSelected(cart:cart){
-    console.log('oncartSelected - AppComponent' + cart.amount)
-    this.cartItemsList.push(cart);
-    this.numberOfCart =  this.cartItemsList.length 
+  constructor(private cartService : cartList){}
+  
+  ngOnInit(){
+    // this.cartService.cartUpdated.subscribe((c:cart[])=>{
+    //   this.cartItemsList = c   })
   }
-
 
 
 }

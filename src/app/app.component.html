@@ -1,23 +1,23 @@
-  <app-header (headerWasSelected)="selectedHeader = $event" [numberOfCart]="numberOfCart" [cartItems]="cartItemsList" ></app-header>
+  <app-header (headerWasSelected)="selectedHeader = $event" ></app-header>
 <div class="container">
   <!-- <div class="row"> -->
     <div >
       <div class="list-group float-right">   
         <div *ngIf="selectedHeader=='View Cart'"   style="max-width: 500px;">
-          <app-cart-panel  [cartItems]="cartItemsList" ></app-cart-panel>
+          <app-cart-panel ></app-cart-panel>
         </div>
       </div> 
     </div>
   
   
   <div >
-    <app-products-panel (emitCart)="oncartSelected($event) "></app-products-panel>
+    <app-products-panel></app-products-panel>
   </div>
 
 <!-- </div> -->
 </div>
 
-<div class="btn-group open">
+<div class="btn-group">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown button
   </button>
