@@ -13,6 +13,7 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
 import { DropdownDirective } from './Shared/directives/dropdown.directive';
 import { cart } from './cart-panel/cart.model';
 import { cartList } from './Shared/Service/cartList.service';
+import { ProductService } from './products-panel/products.service'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { cartList } from './Shared/Service/cartList.service';
   imports: [
     BrowserModule//,FormsModule
   ],
-  providers: [cartList],
+  providers: [cartList,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { product } from '../Shared/Model/product.model';
 import { cart } from 'src/app/cart-panel/cart.model';
+import { ProductService } from './products.service';
 
 @Component({
   selector: 'app-products-panel',
@@ -10,19 +11,17 @@ import { cart } from 'src/app/cart-panel/cart.model';
 export class ProductsPanelComponent implements OnInit {
   @Output() emitCart = new EventEmitter<cart>();
  productSelected : product;
-  constructor() { }
+  constructor(private prodService : ProductService) {
+    
+   }
 
   ngOnInit(): void {
+    this.prodService.prodductSelected.subscribe(
+      (p:product)=>{
+        this.productSelected = p;
+      }
+    )
   }
 
-  onItemSelected(product:product){
-    console.log('Item clicked ProductsPanel: '  +product)
-    this.productSelected = product;
-  }
-
-  onCartWasAdded(cartAdded : cart){
-    console.log('onCartWasAdded - ProductsPanelComponent' +cartAdded.product.name + cartAdded.amount)
-    this.emitCart.emit(cartAdded)
-  }
 
 }
