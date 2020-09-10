@@ -1,17 +1,18 @@
   <app-header (headerWasSelected)="selectedHeader = $event" ></app-header>
-<div class="container">
+  <div class="container" >
+    <div class="list-group float-right">   
+      <div *ngIf="selectedHeader=='View Cart'"   style="max-width: 500px;">
+        <app-cart-panel ></app-cart-panel>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container">
   <!-- <div class="row"> -->
-    <div >
-      <div class="list-group float-right">   
-        <div *ngIf="selectedHeader=='View Cart'"   style="max-width: 500px;">
-          <app-cart-panel ></app-cart-panel>
-        </div>
-      </div> 
-    </div>
-  
   
   <div >
-    <app-products-panel></app-products-panel>
+    <router-outlet></router-outlet>
+    
   </div>
 
 <!-- </div> -->

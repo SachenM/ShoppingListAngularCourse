@@ -14,6 +14,10 @@ import { DropdownDirective } from './Shared/directives/dropdown.directive';
 import { cart } from './cart-panel/cart.model';
 import { cartList } from './Shared/Service/cartList.service';
 import { ProductService } from './products-panel/products.service'
+import { AppRoutingModule } from './app-routing.module';
+import { ManageComponent } from './manage/manage.component';
+import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
+import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
 
 @NgModule({
   declarations: [
@@ -26,10 +30,14 @@ import { ProductService } from './products-panel/products.service'
     DetailsComponent,
     ProductsPanelComponent,
     CartPanelComponent,
-    DropdownDirective
+    DropdownDirective,
+    ManageComponent,
+    ProductsStartComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule//,FormsModule
+    ,AppRoutingModule
   ],
   providers: [cartList,ProductService],
   bootstrap: [AppComponent]

@@ -10,17 +10,13 @@ import { ProductService } from './products.service';
 })
 export class ProductsPanelComponent implements OnInit {
   @Output() emitCart = new EventEmitter<cart>();
- productSelected : product;
+
   constructor(private prodService : ProductService) {
     
    }
 
   ngOnInit(): void {
-    this.prodService.prodductSelected.subscribe(
-      (p:product)=>{
-        this.productSelected = p;
-      }
-    )
+
   }
 
 

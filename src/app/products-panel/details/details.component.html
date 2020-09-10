@@ -1,4 +1,4 @@
-
+<h2> Details </h2>
 <div class="card">
     <div class="card-body">
         <div class="card-body float-right">
@@ -9,6 +9,8 @@
         <h1 class="list-group-item-heading"><b>{{ displayProduct.name }}</b></h1>
         <h6 class="card-subtitle mb-2 text-muted">{{ displayProduct.type }}</h6>
         <p>{{ displayProduct.desctription }}</p>
+        <button class="btn btn-primary "
+        routerLink="edit">Edit</button>
         <hr>
             <h5 ><b>Cost :</b> INR <span style="color:red;"> {{ displayProduct.cost }}</span></h5>       
         <hr>

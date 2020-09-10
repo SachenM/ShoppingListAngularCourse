@@ -9,7 +9,6 @@ import { ProductService } from '../products.service';
 })
 export class ProductListComponent implements OnInit {
   products : product[]=[];
-  @Output() itemSelected = new EventEmitter<product>();
 
 
   constructor(private prodService : ProductService) { }
@@ -18,9 +17,6 @@ export class ProductListComponent implements OnInit {
     this.products=this.prodService.getProductList()    
   }
 
-  onItemClicked(productselected:product){
-    console.log('Item clicked : ' + 'll' +productselected)
-    this.prodService.prodductSelected.emit(productselected);
-  }
+
 
 }

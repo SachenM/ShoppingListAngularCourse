@@ -2,9 +2,11 @@
        
     
     <Div *ngFor="let product of products">
-        <a href="#" class="list-group-item list-group-item-action clearfix"      
-        (click) = "onItemClicked(product)">     
-            <app-product-item [product]="product" ></app-product-item> 
+        <a [routerLink]="[product.id]"
+        routerLinkActive="active"
+        style="cursor: pointer;" class="list-group-item list-group-item-action clearfix">     
+            <app-product-item [product]="product"
+             ></app-product-item> 
         </a>                
     </Div>
 </div>   

@@ -10,9 +10,8 @@
         </div>
         
             
-            <div class="col-md-7" *ngIf="productSelected" >
-                <h2> Details </h2>
-                <app-details [displayProduct]="productSelected"></app-details>
+            <div class="col-md-7" >                
+                <router-outlet></router-outlet>
             </div>
         
     </div>
