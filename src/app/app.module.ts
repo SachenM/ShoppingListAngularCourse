@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ManageComponent } from './manage/manage.component';
 import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,9 @@ import { ProductEditComponent } from './Shared/component/product-edit/product-ed
     ProductEditComponent
   ],
   imports: [
-    BrowserModule//,FormsModule
-    ,AppRoutingModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [cartList,ProductService],
   bootstrap: [AppComponent]

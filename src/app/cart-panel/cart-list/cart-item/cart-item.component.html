@@ -1,3 +1,34 @@
-<a href="#" class="list-group-item list-group-item-action">
-<p>{{ this.cartItem.product.name }} ({{ this.cartItem.amount }}) = INR {{ this.cartItem.amount * this.cartItem.product.cost }} </p>
-</a>
+
+ <form (ngSubmit)="onUpdateQtn(editCart)" #editCart="ngForm">
+
+      
+        {{ +this.index + 1 }}
+
+        {{ this.cartItem.product.name }} 
+        <br>
+        Quantity : 
+        <div style="display: inline-block;"> 
+            <div *ngIf="editMode"  >
+                
+                <input type="number"
+                style="max-width: 100px; margin-left: 10px;" 
+                class="form-control"
+                ngModel
+                name="Amount"   
+                required
+                pattern="^[0-9]+[1-9]*$"> 
+
+            </div>
+            <div *ngIf="!editMode">
+                {{ this.cartItem.amount }}    
+            </div>
+        </div>
+        <br>
+         Cost : INR {{ this.cartItem.amount * this.cartItem.product.cost }} 
+         <br>
+            <button *ngIf="editMode" class="btn btn-success" type="submit" >Update</button>
+      
+
+        <button class="btn btn-danger" (click)="onItemRemove()" >Remove</button>
+  </form>      
+   

@@ -4,6 +4,7 @@ import { cart } from 'src/app/cart-panel/cart.model';
 import { cartList } from 'src/app/Shared/Service/cartList.service';
 import { ProductService } from '../products.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-details',
@@ -13,7 +14,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class DetailsComponent implements OnInit {
   displayProduct:product;
   id:number;
-  @ViewChild('amountInput') amountInputRef : ElementRef;
+//  @ViewChild('amountInput') amountInputRef : ElementRef;
 
   constructor(private cartList:cartList,
      private prodService : ProductService,
@@ -38,8 +39,10 @@ export class DetailsComponent implements OnInit {
     // console.log('Display : ' + this.displayProduct.name)
    }
 
-  onAddToCart(){
-    this.cartList.addToCart(new cart(this.displayProduct,this.amountInputRef.nativeElement.value))
+  onAddToCart(f:NgForm){
+    //this.cartList.addToCart(new cart(this.displayProduct,this.amountInputRef.nativeElement.value))
+    console.log(f)
+    this.cartList.addToCart(new cart(this.displayProduct,f.value.Amount))
 
   }
 
