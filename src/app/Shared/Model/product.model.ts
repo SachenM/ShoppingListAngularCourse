@@ -6,6 +6,7 @@
          public type : string,
          public cost : number,
          public desctription : string,
-         public image : string
+         public image : string,
+         public components : {name:string,Quantity:number}[]
          ){}
  }

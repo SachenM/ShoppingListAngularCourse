@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ManageComponent } from './manage/manage.component';
 import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [cartList,ProductService],

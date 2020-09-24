@@ -27,6 +27,10 @@
         <img class="card-img-bottom"
         [src]="displayProduct.image" alt="" 
         class="img-responsive" style="max-height:350px ;">
+        <hr>
+        <div *ngFor="let component of displayProduct.components">
+           <pre> <b>{{ component.name  }}</b>  -  {{ component.Quantity }} </pre>
+        </div>
     </div>
   </div>
 

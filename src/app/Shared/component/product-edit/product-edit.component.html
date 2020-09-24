@@ -1,1 +1,98 @@
-<p>product-edit works!</p>
+
+ <div class="card">
+    <div class="card-body"> 
+
+
+        <form (ngSubmit)="onSave()"  [formGroup]="productForm">
+
+            <button type="submit" class="btn btn-success" [disabled]="!productForm.valid" >Save</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+
+
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text"
+                id="name"
+                class="form-control"
+                formControlName="name">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text"
+                id="type"
+                formControlName="type"
+                class="form-control">
+            </div>
+    
+                        
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input type="number"
+                id="cost"
+                formControlName="cost"
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="image">ImagePath</label>
+                <input type="text"
+                id="image"
+                formControlName="image"
+                class="form-control">
+            </div>                    
+
+            
+            <img [src]="productForm.get('image').value" class="img-responsive" style="height: 200px;">
+    
+
+            <div class="form-group">
+                <label for="desctription">Description</label>
+                <textarea type="text"
+                id="desctription"
+                rows="3"
+                formControlName="desctription"
+                class="form-control">
+                </textarea>
+            </div>  
+
+            <div formArrayName="components">
+                <div
+                    *ngFor="let componentClr of controls; let i = index"
+                    [formGroupName]="i">
+            
+                    <label for="component">Component {{ i+1 }}</label>
+                    <div class="form-group" id="component">
+                        <div class="row">
+                            <div class="col-md-7">                                
+                                <input type="text"
+                                id="name"
+                                formControlName="name"
+                                class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number"
+                                id="Quantity"
+                                formControlName="Quantity"
+                                class="form-control">
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-success"
+                                (click)="onAddComponent()">+</button>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-danger" (click)="onDeleteComponent(i)">X</button>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

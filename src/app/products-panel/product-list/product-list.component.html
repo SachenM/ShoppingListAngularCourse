@@ -1,8 +1,8 @@
 <div class="col-xs-12" >
        
     
-    <Div *ngFor="let product of products">
-        <a [routerLink]="[product.id]"
+    <Div *ngFor="let product of products;let i=index">
+        <a [routerLink]="[i]"
         routerLinkActive="active"
         style="cursor: pointer;" class="list-group-item list-group-item-action clearfix">     
             <app-product-item [product]="product"
