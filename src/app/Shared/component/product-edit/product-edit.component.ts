@@ -10,17 +10,17 @@ import { product } from '../../Model/product.model';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  id:number;
-  editmode  = false;
-  productForm:FormGroup;
+  id: number;
+  editmode = false;
+  productForm: FormGroup;
 
-  constructor(private A_route:ActivatedRoute,
-    private route:Router,
-    private prodServ : ProductService) { }
+  constructor(private A_route: ActivatedRoute,
+    private route: Router,
+    private prodServ: ProductService) { }
 
   ngOnInit(): void {
     this.A_route.params.subscribe(
-      (param:Params)=>{
+      (param: Params) => {
         this.id = param['id'];
         this.editmode = param['id'] != null;
         this.InitForm()
@@ -34,62 +34,61 @@ export class ProductEditComponent implements OnInit {
 
 
   private InitForm() {
-    let prodName = '' ;
-    let prodImagePath = '' ;
-    let description = '' ;
+    let prodName = '';
+    let prodImagePath = '';
+    let description = '';
     let type = '';
-    let cost:number=null;
+    let cost: number = null;
     let comp = new FormArray([]);
 
-    if(this.editmode){
-      const editProduct : product= this.prodServ.getProduct(this.id);
+    if (this.editmode) {
+      const editProduct: product = this.prodServ.getProduct(this.id);
 
       prodName = editProduct.name;
       prodImagePath = editProduct.image
       description = editProduct.desctription
-      type =  editProduct.type
+      type = editProduct.type
       cost = editProduct.cost
-      if(editProduct.components)
-      {
-        for(let component of editProduct.components){
+      if (editProduct.components) {
+        for (let component of editProduct.components) {
           comp.push(
             new FormGroup({
-              'name': new FormControl(component.name,Validators.required) ,
-              'Quantity' : new FormControl(component.Quantity,[Validators.required,Validators.pattern(/^[0-9]+[1-9]*$/)])
-                      })            
-                    )
+              'name': new FormControl(component.name, Validators.required),
+              'Quantity': new FormControl(component.Quantity, [Validators.required, Validators.pattern(/^[0-9]+[1-9]*$/)])
+            })
+          )
         }
       }
     }
 
     comp.push(new FormGroup({
-        'name': new FormControl(null,Validators.required) ,
-        'Quantity' : new FormControl(null,[Validators.required,Validators.pattern(/^[0-9]+[1-9]*$/)])
-                }))
-    
+      'name': new FormControl(null, Validators.required),
+      'Quantity': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[1-9]*$/)])
+    }))
+
     console.log(prodName)
 
     this.productForm = new FormGroup({
-      'name' : new FormControl(prodName,Validators.required),
-      'image' : new FormControl(prodImagePath,Validators.required),
+      'name': new FormControl(prodName, Validators.required),
+      'image': new FormControl(prodImagePath, Validators.required),
       'desctription': new FormControl(description),
-      'type' : new FormControl(type,Validators.required),
-      'cost' : new FormControl(cost,[Validators.required,Validators.pattern(/(?=.*?\d)^\$?(([1-9]\d{0,2}(,\d{3})*)|\d+)?(\.\d{1,2})?$/)]),
-      'components' : comp
+      'type': new FormControl(type, Validators.required),
+      'cost': new FormControl(cost, [Validators.required, Validators.pattern(/(?=.*?\d)^\$?(([1-9]\d{0,2}(,\d{3})*)|\d+)?(\.\d{1,2})?$/)]),
+      'components': comp
     })
   }
 
-  onSave(){
+  onSave() {
     console.log(this.productForm)
-    
-    if(this.productForm.valid)
-    {   if(this.editmode){
-        this.prodServ.updateProduct(this.id,this.productForm.value)
-      }else{
+
+    if (this.productForm.valid) {
+      if (this.editmode) {
+        this.prodServ.updateProduct(this.id, this.productForm.value)
+      } else {
         this.prodServ.addProduct(this.productForm.value)
       }
 
-      this.route.navigate(["../"],{relativeTo:this.A_route})
+      this.route.navigate(["../"], { relativeTo: this.A_route })
 
     }
 
@@ -98,22 +97,22 @@ export class ProductEditComponent implements OnInit {
   }
 
 
-  onAddComponent(){
+  onAddComponent() {
 
     console.log('onAddComponent');
-      (<FormArray>this.productForm.get('components')).push(
-        new FormGroup({
-          'name' : new FormControl(null,Validators.required),
-          'Quantity' : new FormControl(null,[Validators.required,Validators.pattern(/^[0-9]+[1-9]*$/)])
-        })
-      )
-    }
-
-    get controls() { // a getter!
-      return (<FormArray>this.productForm.get('components')).controls;
+    (<FormArray>this.productForm.get('components')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'Quantity': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]+[1-9]*$/)])
+      })
+    )
   }
 
-  onDeleteComponent(index:number){
+  get controls() { // a getter!
+    return (<FormArray>this.productForm.get('components')).controls;
+  }
+
+  onDeleteComponent(index: number) {
     (<FormArray>this.productForm.get('components')).removeAt(index);
   }
 
@@ -121,4 +120,4 @@ export class ProductEditComponent implements OnInit {
 
 }
 
- 
+

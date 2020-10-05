@@ -16,6 +16,7 @@ export class ProductsPanelComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  //this.prodService.getProductsFromDB();
 
   }
 

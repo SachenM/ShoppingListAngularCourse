@@ -2,7 +2,7 @@
 
 <Div *ngFor="let cart of cartItems; let i = index">
     <a class="list-group-item list-group-item-action"
-    (click)="onItemSelected(i)"    >
+    (click)="onItemSelected(i)"   >
         <app-cart-item [cartItem]="cart" [index]="i"></app-cart-item>
     </a>
 </Div>

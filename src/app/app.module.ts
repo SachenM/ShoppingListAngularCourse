@@ -13,12 +13,17 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
 import { DropdownDirective } from './Shared/directives/dropdown.directive';
 import { cart } from './cart-panel/cart.model';
 import { cartList } from './Shared/Service/cartList.service';
+
+
 import { ProductService } from './products-panel/products.service'
 import { AppRoutingModule } from './app-routing.module';
 import { ManageComponent } from './manage/manage.component';
 import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClickStopPropagationDirective } from './Shared/directives/click-stop-propagation.directive';
+import { HttpClientModule} from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
@@ -34,12 +39,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DropdownDirective,
     ManageComponent,
     ProductsStartComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ClickStopPropagationDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [cartList,ProductService],

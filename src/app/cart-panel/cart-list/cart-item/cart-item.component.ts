@@ -24,19 +24,21 @@ export class CartItemComponent implements OnInit,OnDestroy{
       (i:number)=>{
         console.log(this.index + " : " + i)
         if(this.index==i){  
-          this.editMode = true;  
+          this.cartService.editMode = true;  
+          this.editMode = this.cartService.editMode;
           //this.etr.setValue({ Amount:1 }) ;   
           setTimeout(() => { 
+
             this.etr.setValue({ Amount:this.cartItem.amount });
-          });
+          },2);
           //this.etr.setValue({ Amount:this.cartItem.amount }) ;    
           //this.cartService.inEditingMode.next(i)          
-         }else{  this.editMode = false; }
+         }else{  this.cartService.editMode = false; }
         
       }
     )
     
-
+      
 
   }
 
@@ -46,7 +48,8 @@ export class CartItemComponent implements OnInit,OnDestroy{
     this.cartItem.amount=editCart.value.Amount
     this.cartService.updateCart(this.index,this.cartItem)
     
-    this.editMode = false; 
+    this.cartService.editMode = false; 
+    this.editMode = this.cartService.editMode;
   }
 
 

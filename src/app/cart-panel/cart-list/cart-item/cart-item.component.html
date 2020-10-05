@@ -16,7 +16,8 @@
                 ngModel
                 name="Amount"   
                 required
-                pattern="^[0-9]+[1-9]*$"> 
+                pattern="^[0-9]+[1-9]*$"
+                appClickStopPropagation> 
 
             </div>
             <div *ngIf="!editMode">
@@ -26,9 +27,9 @@
         <br>
          Cost : INR {{ this.cartItem.amount * this.cartItem.product.cost }} 
          <br>
-            <button *ngIf="editMode" class="btn btn-success" type="submit" >Update</button>
+            <button *ngIf="editMode" class="btn btn-success" type="submit" appClickStopPropagation>Update</button>
       
 
-        <button class="btn btn-danger" (click)="onItemRemove()" >Remove</button>
+        <button class="btn btn-danger" (click)="onItemRemove()" appClickStopPropagation >Remove</button>
   </form>      
    

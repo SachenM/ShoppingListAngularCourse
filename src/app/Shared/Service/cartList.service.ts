@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 export class cartList {
     EditingModeClicked = new Subject<number>();
+    editMode:boolean;
     
     //inEditingMode = new Subject<number>();
     private cartItemsList:cart[]=[]; 

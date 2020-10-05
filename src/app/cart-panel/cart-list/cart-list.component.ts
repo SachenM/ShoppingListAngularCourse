@@ -8,7 +8,7 @@ import { cartList } from 'src/app/Shared/Service/cartList.service';
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit,OnChanges {
-  editMode:boolean = false;
+  //editMode:boolean = false;
   cartItems:cart[]=[];
   constructor(private cartService: cartList) { }
 
@@ -24,13 +24,15 @@ export class CartListComponent implements OnInit,OnChanges {
 
   ngOnChanges(){
     console.log('CartListComponent - ngOnChanges')
-    this.editMode=true;
+    //this.editMode=true;
   }
 
 
     onItemSelected(i:number){
     console.log('onItemSelected' + i )
+    if (!this.cartService.editMode){
     this.cartService.EditingModeClicked.next(i)
+}
 
   }
 
