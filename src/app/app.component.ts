@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   
   ngOnInit(){
     console.log('In app comp')
-    this.prodService.setProductsFromDB()
+    // this.prodService.setProductsFromDB()
     // this.cartService.cartUpdated.subscribe((c:cart[])=>{
     //   this.cartItemsList = c   })
   }

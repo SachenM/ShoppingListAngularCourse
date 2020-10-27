@@ -22,7 +22,10 @@ import { ProductsStartComponent } from './products-panel/products-start/products
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClickStopPropagationDirective } from './Shared/directives/click-stop-propagation.directive';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './Shared/component/loading-spinner/loading-spinner.component'
+import { AuthInteceptorService } from './auth/auth-inteceptor.service'
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { HttpClientModule} from '@angular/common/http'
     ManageComponent,
     ProductsStartComponent,
     ProductEditComponent,
-    ClickStopPropagationDirective
+    ClickStopPropagationDirective,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,11 @@ import { HttpClientModule} from '@angular/common/http'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [cartList,ProductService],
+  providers: [cartList,ProductService,
+    {provide:HTTP_INTERCEPTORS,
+    useClass:AuthInteceptorService,
+    multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

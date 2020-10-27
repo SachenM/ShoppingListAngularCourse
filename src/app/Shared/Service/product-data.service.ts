@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { product } from '../Model/product.model';
 import { map } from 'rxjs/operators'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +35,11 @@ export class ProductDataService {
 
   fetchProducts() {
     return this.http.get<product[]>('https://shoppinglist-64141.firebaseio.com/products.json')
-      .pipe(map(products => {
+      .pipe(map(products => { 
+        console.log('fetchProducts');   
+        console.log(products)     
+        console.log(products.map(prod => { return { ...prod}}));
+        
         return products.map(prod => {
           return { ...prod, components: prod.components ? prod.components : [] }
         })

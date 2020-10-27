@@ -25,7 +25,7 @@ export class ProductService {
 
     setProductsFromDB() {
 
-        this.setProductsFromDBWOSub().subscribe
+        this.setProductsFromDBWOSub().subscribe()
         
     }
 
@@ -48,8 +48,8 @@ export class ProductService {
     }
 
     getProductList() {
-        console.log('getProductList')
-        console.log(this.products)
+        // console.log('getProductList')
+        // console.log(this.products)
         return this.products.slice()
     }
 

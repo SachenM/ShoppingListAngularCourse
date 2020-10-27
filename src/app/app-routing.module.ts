@@ -8,6 +8,7 @@ import { DetailsComponent } from './products-panel/details/details.component';
 import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component';
 import { ProductResolverService } from './Shared/Service/product-resolver.service';
+import { AuthComponent } from './auth/auth.component'
 
 const appRoutes : Routes = [
     { path: '', redirectTo:'/products', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const appRoutes : Routes = [
     [        
         { path: 'new', component:ProductEditComponent}
     ]},
-    { path: 'cart', component:CartPanelComponent}
+    { path: 'cart', component:CartPanelComponent},
+    { path: 'auth', component:AuthComponent}
 
 ]
 

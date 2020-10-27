@@ -6,15 +6,20 @@
     </button> -->
 
         <ul class="navbar-nav mr-auto">
-            <li routerLinkActive="active" class="nav-item"><a routerLink="/products" class="nav-link" >Home</a></li>
-            <li routerLinkActive="active" class="nav-item "><a routerLink="/manage" class="nav-link" >Mange</a></li>
+            <li routerLinkActive="active" class="nav-item" *ngIf="isAuthenticated"><a routerLink="/products" class="nav-link" >Home</a></li>
+            <li routerLinkActive="active" class="nav-item" *ngIf="!isAuthenticated"><a routerLink="/auth" class="nav-link" >Login</a></li>
+            <li routerLinkActive="active" class="nav-item" *ngIf="isAuthenticated"><a routerLink="/manage" class="nav-link" >Mange</a></li>
 
         </ul>
 
         <!-- <div class="dropdown show"> -->
+
+            
             <button class="btn btn-success my-2 my-sm-0 mx-5" appDropdown
-            (click)="onCartClicked()" id="dropdownMenuOffset">View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
+            (click)="onCartClicked()" id="dropdownMenuOffset" *ngIf="isAuthenticated">View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
         
+            <button class="btn btn-danger" *ngIf="isAuthenticated">Log Out</button>
+
             <!-- <app-cart-panel [cartItems]="cartItems" ></app-cart-panel>
         </div> -->
 

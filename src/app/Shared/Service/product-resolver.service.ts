@@ -16,7 +16,7 @@ export class ProductResolverService implements Resolve<product[]> {
         if (p.length === 0) {
             return this.prodSer.setProductsFromDBWOSub();
         } else {
-            console.log('Length > 1')
+            //console.log('Length > 1')
             return p;
         }
 
