@@ -9,11 +9,14 @@ import { ProductsStartComponent } from './products-panel/products-start/products
 import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component';
 import { ProductResolverService } from './Shared/Service/product-resolver.service';
 import { AuthComponent } from './auth/auth.component'
+import { AuthGaurdService } from './auth/auth-gaurd.service'
 
 const appRoutes : Routes = [
     { path: '', redirectTo:'/products', pathMatch: 'full'},
     
-    { path: 'products', component:ProductsPanelComponent, children:
+    { path: 'products', component:ProductsPanelComponent,
+    canActivate:[AuthGaurdService],
+    children:
         [
             { path: '', component:ProductsStartComponent},
             { path: ':id', component:DetailsComponent,resolve:[ProductResolverService]},

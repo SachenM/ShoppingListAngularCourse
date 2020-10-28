@@ -18,7 +18,7 @@
             <button class="btn btn-success my-2 my-sm-0 mx-5" appDropdown
             (click)="onCartClicked()" id="dropdownMenuOffset" *ngIf="isAuthenticated">View Cart <span class="badge badge-light">{{numberOfCart}}</span></button>
         
-            <button class="btn btn-danger" *ngIf="isAuthenticated">Log Out</button>
+            <button class="btn btn-danger" (click)="onlogOut()" *ngIf="isAuthenticated">Log Out</button>
 
             <!-- <app-cart-panel [cartItems]="cartItems" ></app-cart-panel>
         </div> -->

@@ -54,8 +54,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
       this.previousRoute=this.router.url
       this.router.navigate(['cart'],{relativeTo:this.route})
     }
-    
-
+  
     //Logic to toggle the cart in header.
   //   var x:string;
   //   if(this.previousHeader==header){
@@ -68,6 +67,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
   //   this.previousHeader = x
    }
 
+
+   onlogOut(){
+      this.authSer.logout();
+  }
 
    ngOnDestroy(){
     this.userSubscription.unsubscribe();
