@@ -3,48 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ProductListComponent } from './products-panel/product-list/product-list.component';
-import { CartListComponent } from './cart-panel/cart-list/cart-list.component';
-import { ProductItemComponent } from './products-panel/product-list/product-item/product-item.component';
-import { CartItemComponent } from './cart-panel/cart-list/cart-item/cart-item.component';
-import { DetailsComponent } from './products-panel/details/details.component';
-import { ProductsPanelComponent } from './products-panel/products-panel.component';
-import { CartPanelComponent } from './cart-panel/cart-panel.component';
 import { DropdownDirective } from './Shared/directives/dropdown.directive';
-import { cart } from './cart-panel/cart.model';
 import { cartList } from './Shared/Service/cartList.service';
 
 
 import { ProductService } from './products-panel/products.service'
 import { AppRoutingModule } from './app-routing.module';
-import { ManageComponent } from './manage/manage.component';
-import { ProductsStartComponent } from './products-panel/products-start/products-start.component';
-import { ProductEditComponent } from './Shared/component/product-edit/product-edit.component'
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClickStopPropagationDirective } from './Shared/directives/click-stop-propagation.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './Shared/component/loading-spinner/loading-spinner.component'
 import { AuthInteceptorService } from './auth/auth-inteceptor.service'
+
+import { ProductsModule } from './products-panel/products.module'
+import { CartModule } from './cart-panel/cart.module'
+import { ManageModule } from './manage/manage.module'
+import { AuthModule } from './auth/auth.module'
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductListComponent,
-    CartListComponent,
-    ProductItemComponent,
-    CartItemComponent,
-    DetailsComponent,
-    ProductsPanelComponent,
-    CartPanelComponent,
-    DropdownDirective,
-    ManageComponent,
-    ProductsStartComponent,
-    ProductEditComponent,
+    DropdownDirective,     
     ClickStopPropagationDirective,
-    AuthComponent,
     LoadingSpinnerComponent
   ],
   imports: [
@@ -52,7 +36,11 @@ import { AuthInteceptorService } from './auth/auth-inteceptor.service'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductsModule,
+    CartModule,
+    ManageModule,
+    AuthModule
   ],
   providers: [cartList,ProductService,
     {provide:HTTP_INTERCEPTORS,

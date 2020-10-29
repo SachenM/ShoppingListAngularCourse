@@ -35,12 +35,12 @@ export class ProductService {
 
         const x = this.psd.fetchProducts();
 
-        return x.pipe(tap(p => { console.log('http2 getProductsFromDB'); console.log(p); this.products = p 
+        return x.pipe(tap(p => { 
+            console.log('http2 getProductsFromDB'); 
+            console.log(p); 
+            this.products = p 
         this.onProductsUpdated.next(this.products.slice()) }))
   
-
-        console.log('http getProductsFromDB')
-        console.log(this.products)
     }
     
     private emitProductsOnUpdate() {
