@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 
 const appRoutes : Routes = [
-    { path: 'cart', component:CartPanelComponent}
+    { path: '', component:CartPanelComponent}
 ]
 
 @NgModule({
@@ -21,7 +21,7 @@ const appRoutes : Routes = [
     imports:[
         CommonModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forChild(appRoutes)
     ]
 })
 export class CartModule {}

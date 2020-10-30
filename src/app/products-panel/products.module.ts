@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-import { Routes } from '@angular/router'
 import { ProductsPanelComponent } from'./products-panel.component'
 import { ProductListComponent } from'./product-list/product-list.component'
 import { ProductsStartComponent } from './products-start/products-start.component'
@@ -8,7 +7,7 @@ import { ProductEditModule } from '../Shared/component/product-edit/product-edit
 import { DetailsComponent } from './details/details.component'
 import { ProductsRoutingModule } from "./products-routing.module"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { CommonModule } from '@angular/common'
+import { SharedModule } from '../Shared/shared.module'
 
 
 
@@ -25,7 +24,8 @@ import { CommonModule } from '@angular/common'
         ProductEditModule,
         ProductsRoutingModule,
         ReactiveFormsModule, 
-        CommonModule,
-        FormsModule]
+        FormsModule,
+        SharedModule
+    ]
 })
 export class ProductsModule {}

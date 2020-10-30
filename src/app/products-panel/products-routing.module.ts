@@ -9,7 +9,7 @@ import { ProductResolverService } from '../Shared/Service/product-resolver.servi
 
 
 const appRoutes : Routes = [
-    { path: 'products', component:ProductsPanelComponent,
+    { path: '', component:ProductsPanelComponent,
     canActivate:[AuthGaurdService],
     children:
         [
@@ -20,7 +20,7 @@ const appRoutes : Routes = [
 ]
 
 @NgModule({
-    imports:[RouterModule.forRoot(appRoutes)],
+    imports:[RouterModule.forChild(appRoutes)],
     exports:[RouterModule]
 })
 export class ProductsRoutingModule {

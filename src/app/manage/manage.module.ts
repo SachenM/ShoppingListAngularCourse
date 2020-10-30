@@ -6,7 +6,7 @@ import { ProductEditComponent } from '../Shared/component/product-edit/product-e
 
 
 const appRoutes : Routes = [
-    { path: 'manage', component:ManageComponent, children:
+    { path: '', component:ManageComponent, children:
     [        
         { path: 'new', component:ProductEditComponent}
     ]},
@@ -17,7 +17,7 @@ const appRoutes : Routes = [
         ManageComponent
     ],
     imports:[
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forChild(appRoutes),
         ProductEditModule
     ]
 })
